@@ -1,4 +1,3 @@
- 
  var scheduleBlocksEl = $("#schedule").find("section");
  var currentTime = moment();
 
@@ -6,7 +5,10 @@ scheduleBlocksEl.each(function(index){
     var id = $(this).attr('id');
     $("#" + id + " .col-10").val(localStorage.getItem(id));
 })
- scheduleBlocksEl.each(function(index){
+
+$("#currentDate").html(moment().format('LLLL'));
+
+scheduleBlocksEl.each(function(index){
     var blockTime = moment($(this).find(".hour").text(), "hA");
     if(currentTime.isSame(blockTime, "hour")){
         $(this).find(".col-10").addClass("present");
